@@ -5,27 +5,16 @@
     <link>
     <link href="style.css" rel="stylesheet">
     <script>
-        function insertL(num) {
-            document.form1.prev.value = document.form1.total.value
-            document.form1.total.value = eval(document.form1.total.value + '+' + num)
+        function insert(myForm, num) {
+            myForm.prev.value = myForm.total.value
+            myForm.total.value = eval(myForm.total.value + '+' + num)
         }
-        function resetL() {
-            document.form1.total.value = 0
-            document.form1.prev.value = 0
+        function reset(myForm) {
+            myForm.total.value = 0
+            myForm.prev.value = 0
         }
-        function undoL() {
-            document.form1.total.value = document.form1.prev.value
-        }
-        function insertR(num) {
-            document.form2.prev.value = document.form2.total.value
-            document.form2.total.value = eval(document.form2.total.value + '+' + num)
-        }
-        function resetR() {
-            document.form2.total.value = 0
-            document.form2.prev.value = 0
-        }
-        function undoR() {
-            document.form2.total.value = document.form2.prev.value
+        function undo(myForm) {
+            myForm.total.value = myForm.prev.value
         }
     </script>
 </head>
@@ -43,20 +32,27 @@
         <center>
             <table>
                 <tr>
-                    <td><input class="btn" type="button" value="Spike +10" onclick="insertL(10)"></td>
+                    <td><input class="btn" type="button" value="Hit +1" onclick="insert(form1,1)"></td>
                 </tr>
                 <tr>
-                    <td><input class="btn" type="button" value="Hit +1" onclick="insertL(1)"></td>
+                    <td><input class="btn" type="button" value="Ace +5" onclick="insert(form1,5)"></td>
                 </tr>
                 <tr>
-                    <td><input class="btn" type="button" value="Return +2" onclick="insertL(2)"></td>
+                    <td><input class="btn" type="button" value="Volley +10" onclick="insert(form1,10)"></td>
                 </tr>
                 <tr>
-                    <td><input class="btn" type="button" value="Clear" onclick="resetL()"></td>
+                    <td><input class="btn" type="button" value="Lob +20" onclick="insert(form1,20)"></td>
                 </tr>
                 <tr>
-                    <td><input class="btn" type="button" value="Undo" onclick="undoL()"></td>
+                    <td><input class="btn" type="button" value="Overhead +20" onclick="insert(form1,20)"></td>
                 </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Undo" onclick="undo(form1)"></td>
+                </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Clear" onclick="reset(form1)"></td>
+                </tr>
+                    
             </table>
         </center>
     </div>
@@ -73,20 +69,27 @@
         <center>
             <table>
                 <tr>
-                    <td><input class="btn" type="button" value="Spike +10" onclick="insertR(10)"></td>
+                    <td><input class="btn" type="button" value="Hit +1" onclick="insert(form2,1)"></td>
                 </tr>
                 <tr>
-                    <td><input class="btn" type="button" value="Hit +1" onclick="insertR(1)"></td>
+                    <td><input class="btn" type="button" value="Ace +5" onclick="insert(form2,5)"></td>
                 </tr>
                 <tr>
-                    <td><input class="btn" type="button" value="Return +2" onclick="insertR(2)"></td>
+                    <td><input class="btn" type="button" value="Volley +10" onclick="insert(form2,10)"></td>
                 </tr>
                 <tr>
-                    <td><input class="btn" type="button" value="Clear" onclick="resetR()"></td>
+                    <td><input class="btn" type="button" value="Lob +20" onclick="insert(form2,20)"></td>
                 </tr>
                 <tr>
-                    <td><input class="btn" type="button" value="Undo" onclick="undoR()"></td>
+                    <td><input class="btn" type="button" value="Overhead +20" onclick="insert(form2,20)"></td>
                 </tr>
+                <tr>
+                        <td><input class="btn" type="button" value="Undo" onclick="undo(form2)"></td>
+                </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Clear" onclick="reset(form2)"></td>
+                </tr>
+                
             </table>
         </center>
     </div>
