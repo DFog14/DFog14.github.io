@@ -1,1 +1,96 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mambo 105</title>
+    <link>
+    <link href="style.css" rel="stylesheet">
+    <script>
+        function insertL(num) {
+            document.form1.prev.value = document.form1.total.value
+            document.form1.total.value = eval(document.form1.total.value + '+' + num)
+        }
+        function resetL() {
+            document.form1.total.value = 0
+            document.form1.prev.value = 0
+        }
+        function undoL() {
+            document.form1.total.value = document.form1.prev.value
+        }
+        function insertR(num) {
+            document.form2.prev.value = document.form2.total.value
+            document.form2.total.value = eval(document.form2.total.value + '+' + num)
+        }
+        function resetR() {
+            document.form2.total.value = 0
+            document.form2.prev.value = 0
+        }
+        function undoR() {
+            document.form2.total.value = document.form2.prev.value
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="split left">
+    <div class="centered">
+        <form name="form1">
+            <h3> Past Total: </h3> 
+            <input class="total" name="prev">
+            <h3> Current Total: </h3>
+            <input class="total" name="total">
+        </form>
+        <center>
+            <table>
+                <tr>
+                    <td><input class="btn" type="button" value="Spike +10" onclick="insertL(10)"></td>
+                </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Hit +1" onclick="insertL(1)"></td>
+                </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Return +2" onclick="insertL(2)"></td>
+                </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Clear" onclick="resetL()"></td>
+                </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Undo" onclick="undoL()"></td>
+                </tr>
+            </table>
+        </center>
+    </div>
+</div>
+  
+<div class="split right">
+    <div class="centered">
+        <form name="form2">
+            <h3> Past Total: </h3> 
+            <input class="total" name="prev">
+            <h3> Current Total: </h3>
+            <input class="total" name="total">
+        </form>
+        <center>
+            <table>
+                <tr>
+                    <td><input class="btn" type="button" value="Spike +10" onclick="insertR(10)"></td>
+                </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Hit +1" onclick="insertR(1)"></td>
+                </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Return +2" onclick="insertR(2)"></td>
+                </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Clear" onclick="resetR()"></td>
+                </tr>
+                <tr>
+                    <td><input class="btn" type="button" value="Undo" onclick="undoR()"></td>
+                </tr>
+            </table>
+        </center>
+    </div>
+</div>
+</body>
+
+</html>
